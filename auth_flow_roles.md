@@ -5,10 +5,9 @@
 
 ## 🔁 Luồng hoạt động xác thực người dùng (Authentication Flow)
 
-```mermaid
+mermaid
 graph TD
 
-%% === Đăng ký ===
 A1[Người dùng: Chọn vai trò (User / Shipper / Admin)] --> A2[Người dùng: Điền thông tin đăng ký]
 A2 --> A3[Hệ thống: Xác thực thông tin đầu vào]
 A3 --> A4{{Vai trò là gì?}}
@@ -19,16 +18,12 @@ A6 --> A7[Admin: Duyệt hồ sơ Shipper]
 A7 --> A8[Hệ thống: Lưu thông tin Shipper vào DB]
 A4 -->|Admin| A9[Hệ thống: Kiểm tra quyền tạo Admin hoặc do hệ thống cấp]
 
-%% === Đăng nhập ===
 B1[Người dùng: Nhập email + mật khẩu] --> B2[Hệ thống: Kiểm tra thông tin]
 B2 --> B3{{Thông tin hợp lệ?}}
 B3 -->|Không| B4[Thông báo lỗi đăng nhập]
 B3 -->|Có| B5[Hệ thống: Cấp JWT token hoặc phiên đăng nhập]
 B5 --> B6[Chuyển hướng đến dashboard tương ứng theo vai trò]
 
-```
-
----
 
 ## ✅ Vai trò và quyền truy cập (Role Permissions)
 
